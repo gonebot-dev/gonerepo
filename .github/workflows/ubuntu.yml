@@ -1,0 +1,32 @@
+name: test-ubuntu
+
+on:
+  pull_request:
+    branches:
+      - dev
+  push:
+    branches:
+      - dev
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/requirements.txt
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.7'
+      - name: Test changes
+        run: |
+          if ${{ github.event_name == 'push' }}; then
+            python scripts/test_ubuntu_main.py ${{ github.sha }} ${{ github.event.before }}
+          else
+            python scripts/test_ubuntu_main.py ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
+          fi
