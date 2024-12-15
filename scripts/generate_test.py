@@ -58,7 +58,7 @@ if __name__ == "__main__":
         data: Dict[str, str] = loads(json_file.read())
 
     # Generate the test file
-    is_adapter = json_path.startswith("packages/adpaters")
+    is_adapter = json_path.startswith("packages/adapters")
     if not is_adapter and not json_path.startswith("packages/plugins"):
         print(f"{json_path} is not a valid JSON file for adapter or plugin!")
         exit(1)
