@@ -1,0 +1,5 @@
+{
+    "adapter": "onebotv11.OneBotV11",
+    "description": "OneBotV11 adapter for gonebot. Use it for QQ.",
+    "package": "github.com/gonebot-dev/goneadapter-onebotv11"
+}
