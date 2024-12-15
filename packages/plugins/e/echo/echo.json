@@ -1,0 +1,5 @@
+{
+    "plugin": "echo.Echo",
+    "description": "Replys what you say",
+    "package": "github.com/gonebot-dev/goneplugin-echo"
+}
