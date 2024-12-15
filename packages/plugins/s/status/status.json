@@ -1,5 +1,0 @@
-{
-    "plugin": "status.Status",
-    "description": "Displays the status of the bot",
-    "package": "github.com/gonebot-dev/goneplugin-status"
-}

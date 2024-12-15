@@ -22,6 +22,8 @@ if __name__ == "__main__":
         exit(0)
     files = output.stdout.splitlines()
     for file in files:
+        subprocess.run([f"echo '{file}'"], shell=True)
+    for file in files:
         subprocess.run([f"echo 'Testing {file}...'"], shell=True)
         exit_code = subprocess.run([f"python scripts/generate_test.py {file}"], shell=True).returncode
         if exit_code != 0:
